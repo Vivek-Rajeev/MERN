@@ -4,12 +4,38 @@
         <title>Sample Page</title>
     </head>
     <body>
-        <h1>heading1</h1>
-        <h3>Subheading </h3>
-        <p><i>Lorem</i><b> ipsum</b><u>dolor sit</u>  amet, consectetur adipiscing elit. <br>
+        <header>
+            <h1>Sample Page</h1>
+            <nav>
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#link">About</a></li>
+                    <li><a href="#list">Services</a></li>
+                    <li><a href="#table">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="header">
+            <h1>heading1</h1>
+            <h2>heading2</h2>
+            <h3>Subheading </h3>
+        </section>
+            <hr>
+        <section id="link">
+            <p><i>Lorem</i><b> ipsum</b><u>dolor sit</u>  amet, consectetur adipiscing elit. <br>
             Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <a href="https://www.github.com">Git</a>
-            <img src="C:\Users\DELL\OneDrive\Pictures\Picsart_24-11-21_17-35-35-180.jpg" alt="nahhhh">
+            <img src="assests\Kalki.jpg" alt="nahhhh" height="250" width="500">
+            <audio src="assests\Aaya-Sher-Paradise.mp3" controls  loop></audio>
+            <video src="assests\Michael_Official_Trailer_720P.mp4" controls  loop height="250" width="500"></video>
+            <audio controls>
+                <source src="assests\Dhurandhar - Title Track - NaaSongs.mp3" type="audio/mpeg">
+            </audio>
+            <iframe src="https://in.bookmyshow.com/" frameborder="1" height="300" width="500"></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/GFCvD76qwPA?si=z4VuHowx4xSEojAL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section><hr>
+        <section id="list">
+            <h4>Goto Movies</h4>
             <ol>
                 <li>f1</li>
                 <li>charlie</li>
@@ -20,9 +46,13 @@
                 <li>charlie</li>
                 <li>saaho</li>
             </ul>
-            <div>hello</div>
-            <span>world</span>
-            <table border="1">
+        </section><hr>
+           <section id="struct">
+                <div>hello</div>
+                <span>world</span>
+           </section><hr>
+            <section id="table">
+                <table border="1">
                 <thead>
                     <tr>
                         <th rowspan="2">Reg.no</th>
@@ -60,6 +90,66 @@
                 </thead>
             </table>
             <a href="./about.htm" target="_blank">About</a>
+        </section>
+
+        <form>
+            <label>Name  :</label>
+            <input type="text" placeholder="Enter the name">
+            <br><br>
+            <label>Email :</label>
+            <input type="email" placeholder="Enter the email">
+            <br><br>
+            <label>Password  :</label>
+            <input type="password" placeholder="Enter the password">
+            <br><br>
+            <label>Gender  :</label>
+            <input type="radio" name="gender">male
+            <input type="radio" name="gender">female
+            <br><br>
+            <label>Skills  :</label>
+            <input type="checkbox" name="skills">Java
+            <input type="checkbox" name="skills">MERN
+            <input type="checkbox" name="skills">DSA
+            <br><br>
+            <label>Country  :</label>
+            <select name="" id="">
+                <option value="select">---select---</option>
+                <option value="india">India</option>
+                <option value="usa">USA</option>
+                <option value="russia">Russia</option>
+            </select>
+            <br><br>
+            <label>Mobile No  :</label>
+            <input type="number" placeholder="Enter the mobile number">
+            <br><br>
+            <label>DOB  :</label>
+            <input type="date"
+            <br><br>
+            <label>Feedbasck  :</label>
+            <textarea name="feedback" rows="4" cols="50" placeholder="Enter the feedback"></textarea>
+            <br><br>
+            <label>Resume  :</label>
+            <input type="file">
+            <br><br>
+            <input type="submit" value="Submit">
+            <input type="reset">
+            <button type="button">Click me</button>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+            
+        </form>
+        <fieldset>
+            <legend>Student Details</legend>
+            <label>Name  :</label>
+            <input type="text" placeholder="Enter the Name">
+        </fieldset>
+
+        <hr>
+        <footer>
+            <center>
+                <p>@2026 HTML basics</p>
+            </center>
+        </footer>
 
         </body>
 </html>

@@ -1,0 +1,39 @@
+/*Tag selector*/
+span{
+    color:rgb(72, 87, 100);
+    font-size: large;
+}
+/*class*/
+.subhead{
+    font-family: sans-serif;
+}
+/*id*/
+#para{
+    background-color:brown;
+    color: beige;
+}
+/*group*/
+span,.subhead,h1{
+    background-color: burlywood;
+
+}
+/*Universal*/
+*{
+    background-color: darksalmon;
+}
+/*Decendent*/
+div > p{
+    color:firebrick;
+}
+/*Attribute*/
+input[type="text"]{
+    color:darkcyan;
+}
+/*Adjacent sibling*/
+h1+ p{
+    color:darkolivegreen;
+}
+/*General Sibling*/
+h1+p~p{
+    color:honeydew;
+}

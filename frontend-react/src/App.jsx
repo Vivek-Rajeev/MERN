@@ -11,7 +11,9 @@ import Form from "./hooks/Form"
 import Effect from "./hooks/Effect"
 import EffectWithApi from "./hooks/EffectWithApi"
 import Login from "./Auth/Login"
-import Signup from "./Auth/Signup"
+import Ref from "./hooks/Ref"
+import Reducer from "./hooks/Reducer"
+// import Signup from "./Auth/Signup"
 
 const App = () => {
   const element = <div>Hello, world!</div>;
@@ -25,7 +27,7 @@ const App = () => {
       <Route path="/services" element={<Services/>}/>
       <Route path="/useState" element={<State/>}/>
       <Route path="/login" element={<Login/>}/>
-      <Route path="/signup" element={<Signup/>}/>
+      {/* <Route path="/signup" element={<Signup/>}/> */}
       {/* Nested Routes */}
       <Route path="/hooks" element={<Hooks/>}>
            <Route path="useState" element={<State/>}/>
@@ -33,6 +35,7 @@ const App = () => {
            <Route path="useEffect" element={<Effect/>}/>
            <Route path="useEffectApi" element={<EffectWithApi/>}/>
            <Route path="useRef" element={<Ref/>}/>
+           <Route path="useReducer" element={<Reducer />}/>
            
       </Route>
     </Routes>

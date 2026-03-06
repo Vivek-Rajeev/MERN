@@ -13,7 +13,10 @@ import EffectWithApi from "./hooks/EffectWithApi"
 import Login from "./Auth/Login"
 import Ref from "./hooks/Ref"
 import Reducer from "./hooks/Reducer"
-// import Signup from "./Auth/Signup"
+import Memo from "./hooks/Memo"
+import Callback from "./hooks/Callback"
+import Signup from "./Auth/Signup"
+import Todo from "./components/Todo"
 
 const App = () => {
   const element = <div>Hello, world!</div>;
@@ -27,7 +30,8 @@ const App = () => {
       <Route path="/services" element={<Services/>}/>
       <Route path="/useState" element={<State/>}/>
       <Route path="/login" element={<Login/>}/>
-      {/* <Route path="/signup" element={<Signup/>}/> */}
+      <Route path="/todo" element={<Todo/>}/>
+      <Route path="/signup" element={<Signup/>}/>
       {/* Nested Routes */}
       <Route path="/hooks" element={<Hooks/>}>
            <Route path="useState" element={<State/>}/>
@@ -36,6 +40,8 @@ const App = () => {
            <Route path="useEffectApi" element={<EffectWithApi/>}/>
            <Route path="useRef" element={<Ref/>}/>
            <Route path="useReducer" element={<Reducer />}/>
+           <Route path="useMemo" element={<Memo/>}/>
+           <Route path="useCallback" element={<Callback/>}/>
            
       </Route>
     </Routes>

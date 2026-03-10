@@ -20,7 +20,7 @@ exports.getTodo = async(req,res) =>{
 exports.updateTodo = async(req,res) =>{
     try{
         const todos = await Todo.findByIdAndUpdate(req.params.id,req.body,{new:true});
-        if(!todo){
+        if(!todos){
         return res.status(404).json({message:"Todo not found"});
         }
         res.status(200).json(todos);

@@ -4,7 +4,7 @@ import Child from './Child'
 const Parent = ({message}) => {
   return (
     <div> 
-      <button onClick={()=>message("Message from Parent")}>send message</button>
+      <button onClick={()=> message("Message from Parent")}>send message</button>
       <Child name="Vampire" age={21} isActive={true} Food={["Pasta","Lollipop","Pongali"]}
       contact={{
         mobile:8790559350,

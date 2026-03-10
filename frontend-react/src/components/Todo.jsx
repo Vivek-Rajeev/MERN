@@ -1,36 +1,45 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react';
+import axios from 'axios';
 
 
 const Todo = () => {
     const [task,setTask] = useState('');
-    const [todos,setTodos] = useState([{
-        task:'Read',
-        status:false
+    const [todos,setTodos] = useState([])
+    const [edit,setEdit] = useState(null);
+    const API = `http://localhost:3000`
 
-    }])
-    const [edit,setEdit] =useState(null);
-    const handleAddOrEdit =()=>{
-        if(edit || edit===0){
-            setTodos(todos.map((todo,index)=>(
-                index===edit?{...todo,task:task} : todo
-            )))
+    const fetchTodo = async()=>{
+        // const res = await axios.get('http://localhost:3000/api/todo/');
+        const res = await axios.get(`${API}/api/todo/`);
+        setTodos(res.data);
+       
+    }
+    useEffect(()=>{
+        fetchTodo()
+    },[]);
+    
+    const handleAddOrEdit=async()=>{
+
+        if(edit){
+            await axios.put(`${API}/api/todo/update/${edit}`,{task});
             setEdit(null);
         }
         else{
-            setTodos([...todos,{
-                task:task,
-                status:false
-            }])
+            await axios.post(`${API}/api/todo/create`,{task})
         }
-        setTask(' ');
+        setTask('');
+        fetchTodo();
     };
-    const handleDelete = (index)=>{
-        setTodos(todos.filter((_,i)=>index!=i))
+    const handleDelete=async(id)=>{
+        await axios.delete(`${API}/api/todo/delete/${id}`)
+        fetchTodo();
     };
-    const handleToggleStatus = (index)=>{
-        setTodos(todos.map((todo,i)=>(
-            index===i?{...todo,status:!todo.status}: todo
-        )))
+    const handleToggleStatus= async(todo)=>{
+        await axios.put(`${API}/api/todo/update/${todo._id}`,{
+            completed:!todo.completed
+        })
+        fetchTodo();
     };
 
   return (
@@ -44,20 +53,20 @@ const Todo = () => {
         <button onClick={handleAddOrEdit}>{(edit||edit===0)?"Update":"Add"}</button>
         <br /><br />
         <ul>
-            {todos.map((todo,index)=>(
-                <li key={index}>
+            {todos.map((todo)=>(
+                <li key={todo._id}>
                     <span style={
                         {cursor:"pointer",
-                    textDecoration:todo.status?"line-through":"none"}
+                    textDecoration:todo.completed?"line-through":"none"}
                 }
-                onClick={()=>handleToggleStatus(index)}
+                onClick={()=>handleToggleStatus(todo)}
                 >{todo.task}</span>
                    
                     <button onClick={()=>{
                         setTask(todo.task);
-                        setEdit(index);
+                        setEdit(todo._id);
                     }}>🍗</button>
-                    <button onClick={()=>handleDelete(index)}>⛔</button>
+                    <button onClick={()=>handleDelete(todo._id)}>⛔</button>
                 </li>
             ))}
         </ul>
